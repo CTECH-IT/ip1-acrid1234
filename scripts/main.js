@@ -45,7 +45,7 @@ let bulletRadius3 = 10 - (Math.random() * 5);
 let bulletRadius4 = 10 - (Math.random() * 5);
 let bulletRadius5 = 10 + (Math.random() * 5);
 
-let lives = 100;
+let lives = 20;
 let level = 1;
 let score = 0;
 

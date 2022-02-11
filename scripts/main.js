@@ -1,3 +1,5 @@
+//Disclaimer: I'm sorry for the terrible code hygeine
+
 
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
@@ -152,7 +154,7 @@ function draw() {
                 dy5 = -dy5;
 
                 lives--;
-                if (lives == 0) {
+                if (lives == 0) {//check if lose
                     alert("GAME OVER u lose");
                     document.location.reload();
                     clearInterval(interval);
@@ -202,7 +204,7 @@ function draw() {
     drawLevel()
 }
 
-function timeScore() {
+function timeScore() {//counts score, surviving one second = one score
     score++;
     
     if (score == 10) {
@@ -215,7 +217,7 @@ function timeScore() {
     }
     
 
-function drawShip() {
+function drawShip() {//creates ship
     ctx.beginPath();
     ctx.rect(shipX, canvas.height - shipHeight, shipWidth, shipHeight);
     ctx.fillStyle = "#0095DD";
@@ -223,7 +225,7 @@ function drawShip() {
     ctx.closePath();
 }
 
-function drawBullet() {
+function drawBullet() {//creates bullet
     ctx.beginPath();
     ctx.arc(x,y,bulletRadius,0,Math.PI*2);
     ctx.fillStyle = "#0095DD";
@@ -231,7 +233,7 @@ function drawBullet() {
     ctx.closePath();
 }
 
-function drawBullet2() {
+function drawBullet2() {//creates bullet2
     ctx.beginPath();
     ctx.arc(x2,y2,bulletRadius2,0,Math.PI*2);
     ctx.fillStyle = "#BFE727";
@@ -239,7 +241,7 @@ function drawBullet2() {
     ctx.closePath();
 }
 
-function drawBullet3() {
+function drawBullet3() {//creates bullet3
     ctx.beginPath();
     ctx.arc(x3,y3,bulletRadius3,0,Math.PI*2);
     ctx.fillStyle = "#14B4C5";
@@ -247,7 +249,7 @@ function drawBullet3() {
     ctx.closePath();
 }
 
-function drawBullet4() {
+function drawBullet4() {//creates bullet4
     ctx.beginPath();
     ctx.arc(x4,y4,bulletRadius4,0,Math.PI*2);
     ctx.fillStyle = "#C514AA";
@@ -255,7 +257,7 @@ function drawBullet4() {
     ctx.closePath();
 }
 
-function drawBullet5() {
+function drawBullet5() {//creates bullet5
     ctx.beginPath();
     ctx.arc(x5,y5,bulletRadius5,0,Math.PI*2);
     ctx.fillStyle = "#3514C5";
@@ -264,26 +266,26 @@ function drawBullet5() {
 }
 
 
-function drawLives() {
+function drawLives() {//draws lives
     ctx.font = "16px Times New Roman";
     ctx.fillStyle = "#0034AB"
     ctx.fillText("Lives: " + lives, 150, 20);
 }
 
-function drawScore() {
+function drawScore() {//draws score
     ctx.font = "16px Times New Roman";
     ctx.fillStyle = "#0034AB";
     ctx.fillText("Score: " + score, 8, 20);
 }
 
-function drawLevel() {
+function drawLevel() {//draws level
     ctx.font = "16px Times New Roman";
     ctx.fillStyle = "#0034AB"
     ctx.fillText("Level: " + level, 250, 20);
 
 }
 
-function keyDownHandler(e) {
+function keyDownHandler(e) {//when press keys, activates
     if (e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
     }
@@ -292,7 +294,7 @@ function keyDownHandler(e) {
     }
 }
 
-function keyUpHandler(e) {
+function keyUpHandler(e) {//when not press keys, doesn't activate
     if (e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = false;
     }
@@ -301,7 +303,7 @@ function keyUpHandler(e) {
     }
 }
 
-function mouseMoveHandler(e) {
+function mouseMoveHandler(e) {//controls mouse movement
     let relativeX = e.clientX - canvas.offsetLeft;
     if (relativeX > 0 && relativeX <canvas.width) {
         shipX = relativeX - shipWidth / 2;
